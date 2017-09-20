@@ -10,6 +10,19 @@ public class Solution {
 	private static List<Long> list = new ArrayList<>();
 
 	private static long[] hako = { 0, 1, 1 };
+	private static long[] memo = new long[10000];
+
+	// Memo
+	public static long sol3(final int n) {
+		if (n == 0) {
+			return 0;
+		} else if (n == 1) {
+			return 1;
+		} else if (Solution.memo[n] != 0) {
+			return Solution.memo[n];
+		}
+		return Solution.sol3(n - 1) + Solution.sol3(n - 2);
+	}
 
 	public static long sol2(final int n) {
 		if (n == 0 || n == 1) {

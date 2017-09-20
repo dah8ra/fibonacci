@@ -1,14 +1,12 @@
 package fib;
 
-import java.util.concurrent.TimeUnit;
-
 public class Main {
 
 	public static void main(final String[] args) {
 		System.out.println("INT MAX  : " + Integer.MAX_VALUE);
 		System.out.println("LONG MAX : " + Long.MAX_VALUE);
 
-		int checkNum = 92;
+		int checkNum = 32;
 
 		long start1 = System.nanoTime();
 		long sol1 = Solution.sol1(checkNum);
@@ -20,17 +18,26 @@ public class Main {
 		System.out.println("Solution2: " + sol2);
 		long end2 = System.nanoTime();
 
+		long start3 = System.nanoTime();
+		long sol3 = Solution.sol3(checkNum);
+		System.out.println("Solution3: " + sol3);
+		long end3 = System.nanoTime();
+
 		if (sol1 != sol2) {
 			System.err.println("ERROR");
 		}
 
 		long elapsed1 = end1 - start1;
 		long elapsed2 = end2 - start2;
+		long elapsed3 = end3 - start3;
 
 		System.out.println("Elapsed1: " + elapsed1 + " nanos");
 		System.out.println("Elapsed2: " + elapsed2 + " nanos");
-		long duration = elapsed1 - elapsed2;
-		System.out.println("Duration: " + TimeUnit.NANOSECONDS.toMillis(duration) + " ms");
+		System.out.println("Elapsed3: " + elapsed3 + " nanos");
+
+		// long duration = elapsed1 - elapsed2;
+		// System.out.println("Duration: " +
+		// TimeUnit.NANOSECONDS.toMillis(duration) + " ms");
 	}
 
 }
