@@ -5,10 +5,10 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 
 	public static void main(final String[] args) {
-		System.out.println("INT MAX: " + Integer.MAX_VALUE);
-		System.out.println("LONG MAX: " + Long.MAX_VALUE);
+		System.out.println("INT MAX  : " + Integer.MAX_VALUE);
+		System.out.println("LONG MAX : " + Long.MAX_VALUE);
 
-		int checkNum = 50;
+		int checkNum = 92;
 
 		long start1 = System.nanoTime();
 		long sol1 = Solution.sol1(checkNum);

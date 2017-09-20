@@ -20,6 +20,10 @@ public class Solution {
 			Solution.hako[0] = Solution.hako[1];
 			Solution.hako[1] = Solution.hako[2];
 			fib = Solution.fib2(Solution.hako[1], Solution.hako[0]);
+			if (fib < 0) {
+				System.err.println("[ERROR] Watchdog2 detected.");
+				System.exit(-1);
+			}
 			Solution.hako[2] = fib;
 			if (Solution.DEBUG) {
 				for (int j = 0; j < 3; j++) {
@@ -43,16 +47,20 @@ public class Solution {
 		for (int i = 2; i < n; i++) {
 			Solution.list.add(i, Solution.fib1(i));
 		}
-		long ret = Solution.list.get(Solution.list.size() - 1);
-		return ret;
+		long fib = Solution.list.get(Solution.list.size() - 1);
+		return fib;
 	}
 
 	private static long fib1(final int n) {
-		long ret = Solution.list.get(n - 1) + Solution.list.get(Solution.list.size() - 2);
+		long fib = Solution.list.get(n - 1) + Solution.list.get(Solution.list.size() - 2);
 		if (Solution.DEBUG) {
-			System.out.println("fib: " + ret);
+			System.out.println("fib: " + fib);
 		}
-		return ret;
+		if (fib < 0) {
+			System.err.println("[ERROR] Watchdog1 detected.");
+			System.exit(-1);
+		}
+		return fib;
 	}
 
 }
