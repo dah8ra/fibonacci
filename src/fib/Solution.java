@@ -11,8 +11,19 @@ public class Solution {
 
 	private static long[] hako = { 0, 1, 1 };
 	private static long[] memo = new long[10000];
+	private static long[] dpbox = new long[10000];
 
-	// Memo
+	// DP
+	public static long sol4(final int n) {
+		Solution.dpbox[0] = 0;
+		Solution.dpbox[1] = 1;
+		for (int i = 2; i < n; i++) {
+			Solution.dpbox[i] = Solution.dpbox[i - 1] + Solution.dpbox[i - 2];
+		}
+		return Solution.dpbox[n];
+	}
+
+	// Memoization
 	public static long sol3(final int n) {
 		if (n == 0) {
 			return 0;
